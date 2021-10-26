@@ -165,7 +165,7 @@ describe('DAY 5: Test Branching - short circuit', () => {
 
     it('c to be "hell yeah" using logical OR to evaluate a OR b, AND the value assigned to c ( find the error and fix it )', () => {
         let a = 1;
-        let b = 1;
+        let b = 0;
         let c = (a || b) && 'hell yeah';
 
         expect(c).toBe('hell yeah');
@@ -174,9 +174,12 @@ describe('DAY 5: Test Branching - short circuit', () => {
 
     it('c to be true IF a AND b are numbers and > than 42', () => {
         // read the test spec carefully before start coding ;)
-        let a;
-        let b;
+        let a = 43;
+        let b = 50;
         let c = false;
+        if (a > 42 && b > 42 && typeof a === 'number' && typeof b === 'number') { c = true; } else {
+            return c;
+        }
 
         expect(c).toBe(true);
 
@@ -187,15 +190,15 @@ describe('DAY 5: Test Branching - conditional operator ( ternary )', () => {
 
     it('c to be true IF a AND b are numbers and > than 42, else it should be false', () => {
 
-        let a = null;
-        let b = null;
-        let c = null; // use ternary operator during assignment
+        let a = 45;
+        let b = 56;
+        let c = (a && b) && true; // use ternary operator during assignment
 
         expect(c).toBe(true);
 
-        a = null;
-        b = null;
-        c = null; // use ternary operator during assignment
+        a = 45;
+        b = 56;
+        c = (a > 42 && b > 42 && typeof a === 'number' && typeof b === 'number') ? c = true : c = false; // use ternary operator during assignment
 
         expect(c.toString()).toBe('Error: Not valid values for a and b');
 
