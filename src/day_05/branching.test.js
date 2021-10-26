@@ -2,13 +2,13 @@
 describe('DAY 5: Test Branching - if...else', () => {
 
     it('b to be true if a is truthy', () => {
-        let a;
-        let b;
+        let a = true;
+        let b = false;
 
         if (a) {
-            //
+            b = true;
         } else {
-            //
+            b = false;
         }
 
         expect(b).toBe(true);
@@ -16,13 +16,13 @@ describe('DAY 5: Test Branching - if...else', () => {
     });
 
     it('b to be false if a is truthy', () => {
-        let a;
-        let b;
+        let a = true;
+        let b = false;
 
         if (a) {
-            //
+            b = false;
         } else {
-            //
+            return b;
         }
 
         expect(b).toBe(false);
@@ -30,12 +30,13 @@ describe('DAY 5: Test Branching - if...else', () => {
     });
 
     it('b to be 1 if a is truthy ( use postfix unary operator )', () => {
-        let a;
+        let a = true;
         let b = 0;
 
         if (a) {
-            //
+            b = 1;
         } else {
+            return b;
             //
         }
         // are prefix and postfix interchangeable here?
@@ -44,13 +45,13 @@ describe('DAY 5: Test Branching - if...else', () => {
     });
 
     it('b to be -1 if a is truthy ( use prefix unary operator )', () => {
-        let a;
+        let a = true;
         let b = 0;
 
         if (a) {
-            //
+            b = b - 1;
         } else {
-            //
+            return b;
         }
         // are prefix and postfix interchangeable here?
         expect(b).toBe(-1);
@@ -62,13 +63,14 @@ describe('DAY 5: Test Branching - if...else', () => {
 describe('DAY 5: Test Branching - switch/break', () => {
 
     it('found to be true when number 7 is the first item of array', () => {
-        let array = [];
+        let array = [7, 2, 4, 5, 6];
         let found = false;
 
         switch (array.indexOf(7)) {
             case -1:
                 break;
             case 0:
+                found = true;
                 break;
             case 1:
                 break;
@@ -81,17 +83,18 @@ describe('DAY 5: Test Branching - switch/break', () => {
     });
 
     it('found to be true when number 7 is not an item of array', () => {
-        let array = [];
+        let array = [6, 5, 5];
         let found = false;
 
         switch (array.indexOf(7)) {
-            case -1:
-                break;
             case 0:
                 break;
             case 1:
                 break;
+            case 2:
+                break;
             default:
+                found = true;
                 break;
         }
 
@@ -100,18 +103,18 @@ describe('DAY 5: Test Branching - switch/break', () => {
     });
 
     it('found to be true when number 7 is at index 4 of array', () => {
-        let array = [];
+        let array = [3, 4, 6, 5, 7, 8];
         let found = false;
 
         switch (array.indexOf(7)) {
-            case -1:
-                break;
             case 0:
                 break;
             case 1:
                 break;
-            default:
+            case 4:
                 found = true;
+                break;
+            default:
                 break;
         }
 
@@ -120,18 +123,26 @@ describe('DAY 5: Test Branching - switch/break', () => {
     });
 
     it('found to be true when number 7 is at index 2 or 3 or 4 of array ( wanna try Fallthrough? )', () => {
-        let array = [];
+        let array = [1, 2, 7, 7, 7, 8];
         let found = false;
 
         switch (array.indexOf(7)) {
-            case -1:
-                break;
             case 0:
                 break;
             case 1:
                 break;
-            default:
+            case 2:
                 found = true;
+                break;
+            case 3:
+                found = true;
+                break;
+            case 4:
+                found = true;
+                break;
+            case 5:
+                break;
+            default:
                 break;
         }
 
@@ -144,9 +155,9 @@ describe('DAY 5: Test Branching - switch/break', () => {
 describe('DAY 5: Test Branching - short circuit', () => {
 
     it('c to be "hell yeah" using logical AND to evaluate a AND b, AND the value assigned to c', () => {
-        let a;
-        let b;
-        let c = a && b && 'hell yeah';
+        let a = 'fck';
+        let b = 'off';
+        let c = (a && b) && 'hell yeah';
 
         expect(c).toBe('hell yeah');
 
@@ -154,8 +165,8 @@ describe('DAY 5: Test Branching - short circuit', () => {
 
     it('c to be "hell yeah" using logical OR to evaluate a OR b, AND the value assigned to c ( find the error and fix it )', () => {
         let a = 1;
-        let b;
-        let c = a || b && 'hell yeah';
+        let b = 1;
+        let c = (a || b) && 'hell yeah';
 
         expect(c).toBe('hell yeah');
 
