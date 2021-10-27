@@ -12,7 +12,8 @@ describe('DAY 8: classes', () => {
              * 
              * @returns {Dog}
              */
-            constructor () {
+            constructor (name) {
+                this.name = name;
                 this.favoriteThing = `food`;
             }
 
@@ -23,14 +24,14 @@ describe('DAY 8: classes', () => {
         expect(myDog1.name).toBe('fido');
         expect(myDog1.favoriteThing).toBe(`food`);
 
-        let myDog2 = new Dog();
+        let myDog2 = new Dog('lonely dog without a name');
 
         expect(myDog2.name).toBe(`lonely dog without a name`);
         expect(myDog2.favoriteThing).toBe(`food`);
 
     });
 
-    it(`Dog should extend from Mammal`, () => {
+    it.only(`Dog should extend from Mammal`, () => {
 
         /**
          * 
@@ -41,7 +42,7 @@ describe('DAY 8: classes', () => {
              * @returns { Mammal }
              */
             constructor () {
-                this.hasFur = true;
+               
                 this.isWarmBlooded = true;
             }
         }
@@ -49,15 +50,17 @@ describe('DAY 8: classes', () => {
         /**
          * @extends Mammal
          */
-        class Dog {
+        class Dog extends Mammal {
 
             /**
              * 
              * @returns {Dog}
              */
             constructor () {
+                this.hasFur = true;
                 this.favoriteThing = `food`;
             }
+            
 
         }
 
