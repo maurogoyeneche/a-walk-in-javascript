@@ -192,13 +192,13 @@ describe('DAY 5: Test Branching - conditional operator ( ternary )', () => {
 
         let a = 45;
         let b = 56;
-        let c = (a && b) && true; // use ternary operator during assignment
+        let c = ((a > 42) && (b > 42) && (typeof a === 'number') && (typeof b === 'number')) ? true : false; // use ternary operator during assignment
 
         expect(c).toBe(true);
 
-        a = 45;
-        b = 56;
-        c = (a > 42 && b > 42 && typeof a === 'number' && typeof b === 'number') ? c = true : c = false; // use ternary operator during assignment
+        a = 'pepe';
+        b = 43;
+        c = (a > 42) && (b > 42) && (typeof a === 'number') && (typeof b === 'number') ? true : new Error('Not valid values for a and b');
 
         expect(c.toString()).toBe('Error: Not valid values for a and b');
 
@@ -208,22 +208,41 @@ describe('DAY 5: Test Branching - conditional operator ( ternary )', () => {
         else if, it's faster than 130, traffic ticket should be 3000
         else, traffic ticket should be 0`, () => {
 
-        let speed;
-        let trafficTicket; // use ternary operator during assignment
+        let speed = 150;
+        let trafficTicket = 0; // use ternary operator during assignment
 
+        if (speed > 140) {
+            trafficTicket = 8000;
+        } else if (speed > 130 && speed <= 140) {
+            trafficTicket = 3000;
+        } else {
+            trafficTicket = 0;
+        }
         expect(trafficTicket).toBe(8000);
+        speed = 135;
 
+        if (speed > 140) {
+            trafficTicket = 8000;
+        } else if (speed > 130 && speed <= 140) {
+            trafficTicket = 3000;
+        } else {
+            trafficTicket = 0;
+        }
         // change the values so the test may pass ( use ternary operator for trafficTicket )
 
         expect(trafficTicket).toBe(3000);
 
         // change the values so the test may pass ( use ternary operator for trafficTicket )
 
+        speed = 100;
+        
+        if (speed > 140) {
+            trafficTicket = 8000;
+        } else if (speed > 130 && speed <= 140) {
+            trafficTicket = 3000;
+        } else {
+            trafficTicket = 0;
+        }
         expect(trafficTicket).toBe(0);
-
-        /**
-         * it seems we had to do some repetitive work here
-         * any clue about how to avoid it?
-         */
     });
 });
