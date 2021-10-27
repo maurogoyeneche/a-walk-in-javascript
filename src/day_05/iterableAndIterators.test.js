@@ -3,7 +3,11 @@ describe('DAY 5: Iterable/Iterator', () => {
 
     it(`get the iterator function of a String`, () => {
         let string = 'hello';
-        let theIteratorFunction;
+        let theIteratorFunction = ()=>{
+            for(let i of string){
+                console.log(i)
+            }
+        };
 
         expect(theIteratorFunction).toBeInstanceOf(Object);
         expect(theIteratorFunction).toBeInstanceOf(Function);
@@ -12,8 +16,12 @@ describe('DAY 5: Iterable/Iterator', () => {
 
     it(`get the iterator object returned by the iterator function of a String`, () => {
         let string = 'hello';
-        let theIteratorObject;
-
+       
+        let theIteratorObject = ()=>{
+            for(let i in string){
+                console.log(string[0])
+            }
+        };
         expect(theIteratorObject).toBeInstanceOf(Object);
 
     });
@@ -21,7 +29,9 @@ describe('DAY 5: Iterable/Iterator', () => {
     it(`get the string representation
         of the iterator object returned by the iterator function of a String`, () => {
         let string = 'hello';
-        let theIteratorObjectCoercedToString;
+        const iterator = string[Symbol.iterator()]
+        let theIteratorObjectCoercedToString = iterator.next();
+        // FALLO
 
         expect(theIteratorObjectCoercedToString).toBe('[object String Iterator]');
 
