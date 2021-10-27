@@ -1,11 +1,7 @@
 describe('DAY 5: Test Grouping', () => {
 
     it('change the code to make the second expect throw and error', () => {
-       try {
-           let a;
-       } catch (error) {
-           throw 'b is not defined'
-       }
+        let a;
       
 
         expect(a).toBe(undefined);
