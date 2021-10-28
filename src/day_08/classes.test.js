@@ -31,7 +31,7 @@ describe('DAY 8: classes', () => {
 
     });
 
-    it.only(`Dog should extend from Mammal`, () => {
+    it(`Dog should extend from Mammal`, () => {
 
         /**
          * 

@@ -2,6 +2,7 @@ describe('DAY 6: Test Hoisting', () => {
 
     it(`myHoistedVariable should be hoisted as undefined,
         NOT to throw a reference error`, () => {
+            let myHoistedVariable;
 
         expect(myHoistedVariable).toBeUndefined();
 
@@ -11,11 +12,13 @@ describe('DAY 6: Test Hoisting', () => {
 
     it(`myHoistedFunctionExpression should be hoisted as undefined,
         NOT to throw a reference error`, () => {
+            function myHoistedFunctionExpression()
 
         expect(myHoistedFunctionExpression).toBeUndefined();
 
         // change the declaration statement to complete the test
         const myHoistedFunctionExpression = function () {
+            //ima comment
 
         };
     });

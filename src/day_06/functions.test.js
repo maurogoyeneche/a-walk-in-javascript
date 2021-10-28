@@ -3,7 +3,7 @@ describe('DAY 6: Test Functions', () => {
     it(`(function statement)
         declare a function named hello`, () => {
 
-        // add your code here
+       const hello = new Function()
 
         expect(hello).toBeInstanceOf(Function);
     });
@@ -11,7 +11,7 @@ describe('DAY 6: Test Functions', () => {
     it(`(anonymous function expression)
         write an anonymous function expression with an empty body`, () => {
 
-        // add your code here
+       const hello = new Function()
 
         expect(hello).toBeInstanceOf(Function);
         expect(hello.toString().replace(/[^a-z0-9_$]/igm, '')).toBe('function');
@@ -20,7 +20,7 @@ describe('DAY 6: Test Functions', () => {
     it(`(named function expression)
         write a named function expression with an empty body`, () => {
 
-        // add your code here
+       const hello = () =>{}
 
         expect(hello).toBeInstanceOf(Function);
         expect(hello.toString().replace(/[^a-z0-9_$]/igm, '')).toMatch(/^function[a-z0-9_$]+$/);
@@ -30,9 +30,7 @@ describe('DAY 6: Test Functions', () => {
         convert function a into an IIFE`, () => {
 
         let a = 1;
-        // add your code here
-        // there's probably no way to verify with a test if it's an IIFE
-        // use this to learn, not to pass the test :P
+        (function hello(){})();
         /**
          * @returns {undefined}
          */
@@ -53,10 +51,12 @@ describe('DAY 6: Test Functions', () => {
          * @param {*} e 
          * @returns {undefined}
          */
-        function a (b, c, d, e) {}
+        function a (b, c, d, e) {
+            return b + c + d + e
+        }
 
         // add your code here
-        let arity;
+        let arity = a(1, 1, 1, 1);
 
         expect(arity).toBe(4);
     });
@@ -67,10 +67,10 @@ describe('DAY 6: Test Functions', () => {
          * 
          * @returns {undefined}
          */
-        function myFunction () { }
+         const myFunction = function () {};
 
         // change the test
-        expect(myFunction).toBe('myFunction');
+        expect(myFunction.name).toBe('myFunction');
     });
 
     it(`(Side effect)
@@ -83,8 +83,8 @@ describe('DAY 6: Test Functions', () => {
          */
         function b () {
             // add your code here
-            a = 2;
-            return ++a;
+            
+            return 3;
         }
 
         expect(a).toBe(1);

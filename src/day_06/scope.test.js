@@ -2,11 +2,12 @@
 describe('DAY 6: Test Scope', () => {
 
     it(`n to be available outside of the block scope`, () => {
-
+let n;
         {
             // change the declaration statement to accomplish the task
             let n = 5;
         }
+        
 
         expect(n).toBe(5);
     });
@@ -25,7 +26,7 @@ describe('DAY 6: Test Scope', () => {
     });
 
     it(`inner most IIFE to have access to the outer most n var (hint: change the expect statement)`, () => {
-        let n = 5;
+        var n = 5;
 
         (function () {
 
