@@ -38,7 +38,9 @@ describe('DAY 5: Iterable/Iterator', () => {
         let theIteratorObject = string[Symbol.iterator]();
         let theIteratorObjectCoercedToString = String(theIteratorObject)
         
-        let theIteratorNextMethod = theIteratorObjectCoercedToString;
+        let string = 'hello';
+
+        let theIteratorNextMethod = string[Symbol.iterator]().next;
 
         expect(theIteratorNextMethod).toBeInstanceOf(Object);
         expect(theIteratorNextMethod).toBeInstanceOf(Function);
@@ -48,7 +50,7 @@ describe('DAY 5: Iterable/Iterator', () => {
     it(`get at least 1 value returned by the next method returned by the iterator function of a String`, () => {
         let string = 'hello';
         let theIteratorNextMethodValue;
-
+        let theIteratorNextMethodValue = string[Symbol.iterator]().next().value
         expect(theIteratorNextMethodValue).toBe('h');
 
     });
