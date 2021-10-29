@@ -18,15 +18,19 @@ describe('DAY 9: Async/await', () => {
             }, 50);
         });
     }
+  
 
     // @see https://jestjs.io/docs/en/asynchronous for a hint
     it(`make an async test for fetchData to verify resolution`, () => {
-        throw new Error('replace the test body');
-        
+        fetchData('resolve')
+        // throw new Error('replace the test body');
+     
+
     });
 
     // @see https://jestjs.io/docs/en/asynchronous for a hint
     it(`make an async test for fetchData to verify rejection`, () => {
-        throw new Error('replace the test body');
+        // throw new Error('replace the test body');
+        fetchData('reject')
     });
 });

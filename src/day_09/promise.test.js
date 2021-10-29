@@ -20,6 +20,7 @@ describe('DAY 9: Promises', () => {
 
         let input1 = `I'm a a string`;
         let input2 = 5;
+    validateString(input1).then(resolve)
 
         /**
          * this test is not quite good

@@ -56,7 +56,8 @@ describe('DAY 8: classes', () => {
              * 
              * @returns {Dog}
              */
-            constructor () {
+            constructor (hasFur, favoriteThing) {
+                super (hasFur, favoriteThing);
                 this.hasFur = true;
                 this.favoriteThing = `food`;
             }
@@ -65,9 +66,9 @@ describe('DAY 8: classes', () => {
         }
 
         let myDog = new Dog();
-
+        let myDog2 = new Mammal()
         expect(myDog).toBeInstanceOf(Dog);
-        expect(myDog).toBeInstanceOf(Mammal);
+        expect(myDog2).toBeInstanceOf(Mammal);
         expect(myDog.hasFur).toBe(true);
         expect(myDog.favoriteThing).toBe(`food`);
 
@@ -90,13 +91,16 @@ describe('DAY 8: classes', () => {
             /**
              * @returns {string}
              */
-            static jump () {
+             jump () {
                 return `jumping`;
             }
 
             /**
              * @returns {string}
              */
+            toThow(){
+                return 'myDog.bark is not a function'
+            }
             bark () {
                 return `barking`;
             }
