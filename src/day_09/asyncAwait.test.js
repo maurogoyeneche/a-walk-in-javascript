@@ -22,6 +22,7 @@ describe('DAY 9: Async/await', () => {
     // @see https://jestjs.io/docs/en/asynchronous for a hint
     it(`make an async test for fetchData to verify resolution`, () => {
         throw new Error('replace the test body');
+        
     });
 
     // @see https://jestjs.io/docs/en/asynchronous for a hint

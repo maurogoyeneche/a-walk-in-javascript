@@ -16,7 +16,7 @@ describe('DAY 7: this keyword', () => {
         }
 
         // complete the code to pass the test
-        let a;
+        let a = new A();
 
         expect(a.b()).toBe(a.c);
         expect(a).toBeInstanceOf(A);
