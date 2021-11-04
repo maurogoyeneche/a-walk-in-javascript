@@ -12,7 +12,7 @@ describe('DAY 9: Callback', () => {
          * @param {function} callback 
          * @returns {undefined}
          */
-        let caller = () => {};
+        let caller = (callback) => { return callbackArgument};
 
         let result = caller(callback);
 
@@ -30,9 +30,9 @@ describe('DAY 9: Callback', () => {
         // @see https://jestjs.io/docs/en/asynchronous
         let caller = () => {};
 
-        setTimeout(() => expect(callback).toBeCalledWith(callbackArgument), 1000);
+        setTimeout(() => expect(callback).toBeCalledWith(callbackArgument), 1000).done();
 
-        setTimeout(() => caller(callback), 50);
+        setTimeout(() => caller(callback), 50).done();
 
     }, 2000);
 });

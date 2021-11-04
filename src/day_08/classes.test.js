@@ -123,33 +123,85 @@ describe('DAY 8: classes', () => {
         /**
          * 
          */
-        class Dog {
+         class Dog {
+
+
 
             /**
+
              * @returns {Dog}
+
              */
-            constructor () {
-                this.favoriteThing = `food`;
+
+            constructor() {
+
+
+
+                // this.favoriteThing = `food`;
+
                 this[Symbol(`dogName`)] = '';
+
+                this[Symbol(`favoriteThing`)] = '';
+
             }
 
+
+
             /**
+
              * @param {string} name
+
              */
-            set name (name) {
+
+            set name(name) {
+
                 let dogNameSymbol = Object.getOwnPropertySymbols(this)[0];
+
                 this[dogNameSymbol] = name;
+
             }
 
+
+
             /**
+
              * @returns {string}
+
              */
-            get name () {
+
+            get name() {
+
                 let dogNameSymbol = Object.getOwnPropertySymbols(this)[0];
+
                 return this[dogNameSymbol];
+
+            }
+
+
+
+            set favoriteThing(favoriteThing) {
+
+                // this.favoriteThing = `food`;
+
+                let favoriteThingSymbol = Object.getOwnPropertySymbols(this)[1];
+
+                this[favoriteThingSymbol] = favoriteThing;
+
+            }
+
+
+
+            get favoriteThing() {
+
+                let favoriteThingSymbol = Object.getOwnPropertySymbols(this)[1];
+
+                return this[favoriteThingSymbol];
+
             }
 
         }
+
+
 
         let myDog = new Dog();
         myDog.name = `Copernicus`;
